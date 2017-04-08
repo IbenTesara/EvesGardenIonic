@@ -1,0 +1,23 @@
+<ion-view view-title="Garden">
+    <ion-content id="view" class="padding">
+        <div ng-show="false" id="garden"></div>
+        <ion-item class="plant-item" collection-repeat="plant in vm.plants">
+            <div class="row">
+                <div class="col"> <img class="garden-image" ng-src="{{'img/Garden/'+plant.image+'.jpg'}}" alt="">
+                </div>
+                <div class="col col-67">
+                    <p>{{plant.name}}</p>
+                    <p>{{plant.info}}</p>
+                </div>
+                <div class="col">
+                    +
+                </div>
+
+
+            </div>
+
+
+        </ion-item>
+
+    </ion-content>
+</ion-view>

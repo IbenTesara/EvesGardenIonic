@@ -1,0 +1,144 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+$base-background-color: #1e1e1e;
+$grey :rgba(138, 133, 129, 0.7);
+body {
+    text-transform: uppercase;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.black {
+    background: url(../img/background.png);
+    background-size: cover;
+    background-repeat: none;
+    background-color: #1e1e1e !important;
+    color: white;
+    height: 100%;
+}
+
+.tabs {
+    background: $grey !important;
+    height: 0px;
+}
+
+.grey {
+    background: $grey !important;
+    height: 100%;
+    select {
+        text-align: center;
+    }
+}
+
+.lightgrey {
+    min-height: 75%;
+    background: rgba(218, 217, 216, 0.9);
+    padding: 15px !important;
+    border-radius: 5px;
+    text-transform: none;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 6em;
+    width: 100%;
+    left: 0;
+    padding: 10px;
+    height: 350px;
+
+}
+
+.circle-icon {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.weather{
+    img{
+        height: 30px;
+        width: 30px;
+    }
+    .row{
+        max-height: 40px;
+    }
+
+    .col{
+        &:nth-child(2){
+            text-align: center;
+        }
+        &:nth-child(3){
+            text-align: right;
+        }
+    }
+}
+
+.weather-info{
+    max-height: 70px;
+    padding-bottom: 0px !important;
+    .col-25{
+        img{
+            height: 60px;
+            width: 60px;
+        }
+    }
+}
+
+.temp{
+    font-size: 70px;
+    span{
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+}
+
+.top-row{
+    margin-bottom: 2em;
+}
+
+.middle-row{
+    margin-bottom: 2em;
+}
+
+.feno-info{
+    text-align: center;
+    img{
+        width: 50%;
+        margin-left: 25%;
+    }
+}
+
+.center{
+    text-align: center;
+}

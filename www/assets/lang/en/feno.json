@@ -1,0 +1,12 @@
+{
+    "WINTER" :"Winter",
+    "START_SPRING" : "Start of spring",
+    "EARLY_SPRING" : "Early spring",
+    "SPRING" : "Spring",
+    "PRE_SUMMER": "Pre summer",
+    "SUMMER" : "Summer",
+    "AFTER_SUMMER": "After summer",
+    "EARLY_FALL" : "Early fall",
+    "FALL" : "Full fall",
+    "LATE_FALL": "Late fall"
+}

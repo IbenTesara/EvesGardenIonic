@@ -1,0 +1,20 @@
+[
+    {
+        "name" : "VEG_CARROT",
+        "id" : 1,
+        "neededSpace" : 1,
+        "sow" : 2,
+        "harvest":3,
+        "image" :"veg_wortel",
+        "notNext" : []
+    },
+     {
+        "name" : "VEG_TOMATO",
+        "id" : 2,
+        "neededSpace" : 1,
+        "sow" : 2,
+        "harvest":4,
+        "image" :"veg_tomaat",
+        "notNext" : [1]
+    },
+]

@@ -1,0 +1,162 @@
+<ion-view view-title="Home">
+    <ion-content scroll="false" class="padding black">
+
+        <div class="row">
+            <div class="col col-50"><i class="icon ion-navigate"></i> {{vm.location}}</div>
+            <div class="col col-25"> </div>
+            <div class="col col-25">{{vm.date | date : "dd MMM y"}}</div>
+        </div>
+        <div class="bottom">
+            <div ng-click="vm.page='weather'" class="row">
+                <div class="col col-30 temp">
+                    <span>{{vm.temperature}}°</span>
+                </div>
+            </div>
+            <div ng-click="vm.page='weather'" class="row">
+                <div class="col col-30">{{vm.weather}}</div>
+            </div>
+            <div class="grey padding" ng-if="vm.page==='main'">
+                <div class="row top-row">
+                    <div ng-click="vm.page='moon'" class="col ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.moonPhase}}" alt="">
+                        </div>
+                    </div>
+                    <div ng-click="vm.page='sign'" class="col ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.moonSign}}" alt="">
+                        </div>
+                    </div>
+                    <div ng-click="vm.page='plant'" class="col ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.plantPart}}" alt="">
+                        </div>
+                    </div>
+                    <div ng-click="vm.page='element'" class="col ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.element}}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row middle-row">
+                    <div class="col col-25"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.changeFeno('left')"></button></div>
+                    <div class="col col-50" ng-click="vm.hasImages()">
+                        <p ng-repeat="feno in vm.feno" ng-if="$index === vm.currentFenoIndex">{{feno.name|translate}}</p>
+                    </div>
+                    <div class="col col-25" ><button class="button button-icon icon ion-arrow-right-c" ng-click="vm.changeFeno('right')"></button></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div ng-click="vm.page = task" class="col " ng-repeat="task in vm.tasks">
+                        <div class="circle-icon">
+                            <img ng-src="{{'img/icons/Tasks/'+task+'.svg'}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grey padding" ng-if="vm.page==='moon'">
+                <div class="row">
+                    <div class="col col-25 ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.moonPhase}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.moonSignData.phase | translate}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+                </div>
+                <div class="row lightgrey" translate="{{vm.moonSignData.phase +'_TEXT'|translate}}"> </div>
+            </div>
+            <div class="grey padding" ng-if="vm.page==='sign'">
+                <div class="row">
+                    <div class="col col-25 ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.moonSign}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.moonSignData.sign}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+
+                </div>
+                <div class="row lightgrey" translate="{{vm.moonSignData.sign+'_TEXT'}}"></div>
+            </div>
+            <div class="grey padding" ng-if="vm.page==='plant'">
+                <div class="row">
+                    <div class="col col-25 ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.plantPart}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.moonSignData.plant+'_TITLE' | translate}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+
+                </div>
+                <div class="row lightgrey" translate="{{vm.moonSignData.plant+'_TEXT'}}"></div>
+            </div>
+            <div class="grey padding" ng-if="vm.page==='element'">
+                <div class="row">
+                    <div class="col col-25 ">
+                        <div class="circle-icon">
+                            <img ng-src="{{vm.element}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.moonSignData.element+'_TITLE' | translate}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+
+                </div>
+                <div class="row lightgrey" translate="{{vm.moonSignData.element+'_TEXT'}}"></div>
+            </div>
+            <div class="grey padding" ng-if="vm.tasks.includes(vm.page)">
+                <div class="row">
+                    <div class="col col-25 ">
+                        <div class="circle-icon">
+                            <img ng-src="{{'img/icons/Tasks/'+vm.page+'.svg'}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.page + '_TITLE' | translate}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+
+                </div>
+                <!--            <div class="row lightgrey" translate="{{vm.moonSignData.sign+'_TEXT'}}"></div>-->
+            </div>
+            <div class="grey padding" ng-if="vm.page === vm.currentFeno">
+                <div class="row">
+                    <div class="col col-25 ">
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.page + '_TITLE' | translate}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+
+                </div>
+                <div class="row lightgrey" translate="{{vm.moonSignData.sign+'_TEXT'}}"></div>
+            </div>
+            <div class="grey padding" ng-if="vm.page === 'weather'">
+                <div class="row weather-info">
+                    <div class="col col-25 ">
+                        <img src="{{'img/icons/Weather/'+vm.weather +'.svg'}}" alt="">
+                    </div>
+                    <div class="col col-50 col-center text-center">{{vm.weather}}</div>
+                    <div class="col col-center"><button class="button button-icon icon ion-arrow-left-c" ng-click="vm.page='main'"></button></div>
+                </div>
+                <div class="row lightgrey weather">
+                    <div class="col">
+                        <div class="row" ng-repeat="forecast in vm.forecasts">
+                            <div class="col col-33">
+                                <p>{{vm.toDate(forecast.dt_txt) | date : "EEE"}}</p>
+                            </div>
+                            <div class="col col-33"><img src="{{'img/icons/Weather/'+forecast.weather[0].main +'.svg'}}" alt=""></div>
+                            <div class="col col-33">
+                                <p>{{vm.toCel(forecast.main.temp)}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="grey padding" ng-if="vm.page === 'feno'">
+                <div class="row lightgrey feno-info">
+                    <img on-swipe-left="vm.swipe('left')" on-swipe-right="vm.swipe('right')" src="{{'img/feno/'+vm.currentFeno+'_'+vm.currentImage+'.png'}}" alt="">
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
